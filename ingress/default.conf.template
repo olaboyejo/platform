@@ -12,10 +12,10 @@ server {
   location / {
     proxy_pass http://messenger_entrypoint;
   }
-
-  location /health {
-    proxy_pass http://health;
-  }
+location /health {
+    access_log off;
+    return 200 "Successful Update!\n";
+}
 
   error_page 500 502 503 504 /50x.html;
   location = /50x.html {
